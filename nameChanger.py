@@ -75,6 +75,9 @@ def run():
     print("Found saves:", list(getNames()))
     oldname = input("Please enter the name of the save you want to change:\n")
     nameFromDict = getNames().get(oldname)
+    if oldname not in list(getNames()):
+        print("error: Name not found")
+        run()
 
     choice = input("Enter yes to confirm: ").lower().strip()
     if choice == "yes" or choice == "y":
@@ -84,8 +87,8 @@ def run():
             print(nameChanger(nameFromDict, oldname, newname))
         except:
             print("My program seems to broken :(")
-    elif choice.strip().lower == "no" or choice.strip().lower == "n":
-        print("goodbye")
+    elif choice == "no" or choice == "n":
+        print("Ok Cya!")
     else:
         run()
 
